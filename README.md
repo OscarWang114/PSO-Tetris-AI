@@ -1,30 +1,53 @@
-# canttouchthis
-whip your hair
+# PSO-Tetris-AI
 
-CS3243 : Introduction to AI
-Team Project : Learning to Play Tetris with Big Data!
+This is a Term Project for CS3243 - Introduction to Artificial Intelligence at the National University of Singapore.
 
-Submission : zipped file containing
-- project report PDF (MAX 4 PAGES)
-- completed 'PlayerSkeleton.java' code
+## Getting Started
 
-DEADLINE : 2359 April 21st 2018
+These instructions will get you a copy of the project up and training the AI on your local machine. More details will be added in the future.
 
-Running Schedule /////////////////
+## Training the AI
 
-| **Meeting Date** | **Tasks to do before this date** | **Tasks to do after this date** |
-| ------------ | ---------------------------- | --------------------------- |
-| March 15 | Finish planning | Research heuristics (esp allowing scale up / big data etc etc) |
-| March 20 | Decide heuristics from those researched | Begin heuristic implementation, Document as you go - screenshots|
-| March 27 | Discuss results, problems, revisions, etc. | Continue heuristic implementation (approx. half way done)|
-| April 3 | All heuristics complete - a working program (can play 500 lines) | Researching / thinking about some “wow factors”, Multicore distributed computing, See state of documentation |
-| April 10 | --- | --- |
-| April 17 | Report complete | --- |
-| April 21 | FINAL DEADLINE | --- |
+Create a `tetris_log` folder in your home directory for the AI to log its training progress/result as a `.csv` file.
+
+```bash
+mkdir ~/tetris_log
+```
+
+Clone the project and compile.
+```bash
+git clone https://github.com/OscarWang114/PSO-Tetris-AI.git
+cd PSO-Tetris-AI/src
+java *.java jswarm_pso/*.java
+```
+Start training the Tetris AI. Note that you need to supply three arguments in the command for PSO. x1: Number of particles x2: Number of iterations x3: Number of threads
+```bash
+java PSO x1 x2 x3
+```
+For example: `java PSO 30 100 3` uses 30 particles and 100 iterations to train the data. The 30 particles are distributed among 3 threads, so each thread gets 10 particles and processes them sequentially. However, the 3 threads are executed **in parallel**, which can theoretically reduce the computational time by a factor of 1/3 compared to `java PSO 30 100 1`.
+
+## Automated Training on Sunfire using Cron
+
+We used the Sunfire Server provided by the National University of Singapore and Cron to automate the training phase. A guide on using Sunfire and Cron written by [OscarWang114](https://github.com/OscarWang114) can be found [here](https://hackmd.io/s/SJPWTzqsf).
+
+## Built With
+
+* [Java](https://www.oracle.com/java/index.html) - The language used
+* [Cron](https://en.wikipedia.org/wiki/Cron) - The job scheduler used for training
+
+## Authors
+
+* **Oscar Wang** - *Java Coding (heurstics, PSO training, multithreading) and Cron Job executions* - [OscarWang114](https://github.com/OscarWang114)
+* **Vivian Nguyen** - *Java Coding (heurstics) and Report Writing* -
+[vivianmnguyen](https://github.com/vivianmnguyen)
+* **Raphael Massart** - *Report Writing* -
+[RaphaelMassart](https://github.com/RaphaelMassart)
+* **Aishwarya George** - *Report Writing* -
+[ash-g777](https://github.com/ash-g777)
+* **Meriem Hrittane** - *PSO Studying and Researching*-
+[mhrittane](https://github.com/mhrittane)
 
 
+## Acknowledgments
 
-
-
-
-
+* [JSwarm-PSO library](http://jswarm-pso.sourceforge.net/) and its author [Pablo Cingolani](http://www.mcb.mcgill.ca/~pcingola/) (pcingola@users.sourceforge.ne).
