@@ -75,4 +75,4 @@ We used the Sunfire Server provided by the National University of Singapore and 
 
 ## Acknowledgments
 
-* [JSwarm-PSO library](http://jswarm-pso.sourceforge.net/) and its author [Pablo Cingolani](http://www.mcb.mcgill.ca/~pcingola/) (pcingola@users.sourceforge.ne).
+* [JSwarm-PSO library](http://jswarm-pso.sourceforge.net/) and its author [Pablo Cingolani](http://www.mcb.mcgill.ca/~pcingola/) (pcingola@users.sourceforge.net).
