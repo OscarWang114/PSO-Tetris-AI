@@ -338,18 +338,15 @@ public class PlayerSkeleton {
 	public static void main(String[] args) {
 		int rowsCounter = 0;
 		State s = new State();
-		new TFrame(s);
+		// restore the following 1 line to enable GUI
+		// new TFrame(s);
 		PlayerSkeleton p = new PlayerSkeleton();
 		String start = p.logGameStart();
 		while(!s.hasLost()) {
 			s.makeMove(p.pickMove(s,s.legalMoves()));
-			s.draw();
-			s.drawNext(0,0);
-			try {
-				Thread.sleep(0);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			// restore the following 2 lines to enable GUI
+			// s.draw();
+			// s.drawNext(0,0);
 			int rowsCleared = s.getRowsCleared();
 			if ((rowsCleared - rowsCounter) >= 100 && p.shouldLogEveryHundredRows) {
 				p.logEveryHundredRows(rowsCleared);
